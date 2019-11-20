@@ -13,3 +13,6 @@ This came about after my participation in the Department of Energy's
 annual Cyberforce Competition. I've created several means to establish
 and maintain persistence, as well as learned a few tips and tricks along
 the way.
+
+[Linux Persistence](Linux/)
+[Windows Persistence](Windows/)
