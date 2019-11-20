@@ -1,0 +1,12 @@
+[Unit]
+Description=If you are reading this, it is too late.
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+ExecStart=#execute your code here
+[Install]
+WantedBy=multi-user.target
